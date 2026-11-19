@@ -1,0 +1,212 @@
+# Copyright (C) 2026 Diego Vagnoli
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Login Hardening 2.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/bluantinoo/wp-login-hardening/issues\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-19T14:12:42+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: wp-login-hardening\n"
+
+#. Plugin Name of the plugin
+#: wp-login-hardening.php
+#: includes/settings.php:159
+#: includes/settings.php:160
+#: includes/settings.php:260
+msgid "Login Hardening"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: wp-login-hardening.php
+msgid "https://github.com/bluantinoo/wp-login-hardening"
+msgstr ""
+
+#. Description of the plugin
+#: wp-login-hardening.php
+msgid "Takes away what a brute force needs: the list of real usernames, a login form that tells a wrong name from a wrong password, XML-RPC, accounts nobody should use. Optionally logs every failed attempt for fail2ban."
+msgstr ""
+
+#. Author of the plugin
+#: wp-login-hardening.php
+msgid "Diego Vagnoli"
+msgstr ""
+
+#. Author URI of the plugin
+#: wp-login-hardening.php
+msgid "https://diegovagnoli.it"
+msgstr ""
+
+#. translators: %s: reason.
+#: includes/fail2ban.php:187
+#, php-format
+msgid "Test line not written: %s"
+msgstr ""
+
+#: includes/fail2ban.php:195
+msgid "Test line not written: the client address cannot be determined. The request comes from a trusted proxy, and the last entry of X-Forwarded-For is missing, invalid or itself a trusted proxy. As things stand, nothing would be logged."
+msgstr ""
+
+#: includes/fail2ban.php:205
+msgid "Test line handed to syslog. Look for it in the log that receives the auth facility, usually /var/log/auth.log. If it is not there, PHP cannot reach syslog (for example a chrooted PHP-FPM pool): use a log file instead."
+msgstr ""
+
+#: includes/fail2ban.php:206
+msgid "Syslog refused the test line."
+msgstr ""
+
+#. translators: %s: file path.
+#: includes/fail2ban.php:214
+#, php-format
+msgid "Test line written to %s."
+msgstr ""
+
+#. translators: %s: file path.
+#: includes/fail2ban.php:216
+#, php-format
+msgid "Could not write to %s."
+msgstr ""
+
+#: includes/fail2ban.php:294
+msgid "The log file path must be absolute."
+msgstr ""
+
+#: includes/fail2ban.php:296
+msgid "The log file name must end in .log."
+msgstr ""
+
+#: includes/fail2ban.php:298
+msgid "The folder of the log file does not exist."
+msgstr ""
+
+#: includes/fail2ban.php:300
+msgid "The log file must be outside the folders the web server serves."
+msgstr ""
+
+#: includes/fail2ban.php:302
+msgid "PHP cannot write the log file."
+msgstr ""
+
+#: includes/settings.php:126
+msgid "Hide usernames"
+msgstr ""
+
+#: includes/settings.php:127
+msgid "Visitors who are not logged in get no user list from the REST API, no redirect from ?author=N to the author page, no author archives, and oEmbed shows the site instead of the author."
+msgstr ""
+
+#: includes/settings.php:130
+msgid "Same error for a wrong name and a wrong password"
+msgstr ""
+
+#: includes/settings.php:131
+msgid "An unknown username or email gets the message WordPress gives for a wrong password, so the login form no longer confirms which names exist."
+msgstr ""
+
+#: includes/settings.php:134
+msgid "Turn off XML-RPC"
+msgstr ""
+
+#: includes/settings.php:135
+msgid "No XML-RPC methods, pingbacks included, and the X-Pingback header and RSD link are removed. Leave it off if the site uses Jetpack, the WordPress mobile app or remote publishing."
+msgstr ""
+
+#: includes/settings.php:138
+msgid "Accounts without a role cannot log in"
+msgstr ""
+
+#: includes/settings.php:139
+msgid "Retired accounts and author-only accounts can keep their content: remove their role and they can never log in again, and sessions they already have stop working. Not available on multisite."
+msgstr ""
+
+#: includes/settings.php:142
+msgid "Turn off application passwords"
+msgstr ""
+
+#: includes/settings.php:143
+msgid "Application passwords let an app call the REST API with a password alone, which bypasses two-factor login. Leave them on if an integration uses them; WooCommerce REST API keys are a separate mechanism and keep working."
+msgstr ""
+
+#: includes/settings.php:146
+msgid "Log attempts for fail2ban"
+msgstr ""
+
+#: includes/settings.php:147
+msgid "Writes a line for every failed login, password reset request and blocked attempt, in the format of the WP fail2ban plugin. Useful only if you run fail2ban on the server."
+msgstr ""
+
+#. translators: %s: comma-separated list of entries.
+#: includes/settings.php:216
+#, php-format
+msgid "Not IP addresses or ranges, left out: %s"
+msgstr ""
+
+#: includes/settings.php:280
+msgid "On"
+msgstr ""
+
+#. translators: %s: constant name.
+#: includes/settings.php:287
+#: includes/settings.php:330
+#, php-format
+msgid "Set by the %s constant."
+msgstr ""
+
+#. translators: 1: number of users, 2: link to the list of users without a role.
+#: includes/settings.php:301
+#, php-format
+msgid "%1$d user on this site has no role. %2$s"
+msgid_plural "%1$d users on this site have no role. %2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/settings.php:303
+msgid "See them"
+msgstr ""
+
+#: includes/settings.php:314
+msgid "fail2ban"
+msgstr ""
+
+#: includes/settings.php:317
+msgid "Destination"
+msgstr ""
+
+#: includes/settings.php:321
+msgid "Trusted proxies"
+msgstr ""
+
+#: includes/settings.php:336
+msgid "IP addresses or ranges (CIDR) of the reverse proxies or CDN in front of the site, one per line. Only requests that come from one of them are allowed to name the visitor's address in X-Forwarded-For. Leave it empty if the site is reached directly: trusting that header from anyone would let anyone get any address banned."
+msgstr ""
+
+#: includes/settings.php:348
+msgid "Write a test line"
+msgstr ""
+
+#: includes/settings.php:349
+msgid "Writes \"Login Hardening test line\" to the destination above, even if logging is off, to check that it arrives. No filter counts it."
+msgstr ""
+
+#: includes/settings.php:363
+msgid "System log (syslog), facility auth."
+msgstr ""
+
+#. translators: %s: constant name.
+#: includes/settings.php:367
+#, php-format
+msgid "To write to a file instead, define %s with its absolute path in wp-config.php. The file can only be set there."
+msgstr ""
+
+#: includes/settings.php:388
+msgid "Sorry, you are not allowed to do that."
+msgstr ""
+
+#: wp-login-hardening.php:112
+msgid "Settings"
+msgstr ""

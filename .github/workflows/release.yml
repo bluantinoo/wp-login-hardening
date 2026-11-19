@@ -1,0 +1,44 @@
+# Builds the installable zip and publishes a GitHub release for every version tag (v1.2.3).
+# The plugin's update checker installs only this zip, so its folder name is always wp-login-hardening/.
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Check that the tag matches the plugin version
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          header=$(grep -m1 -E '^ \* Version:' wp-login-hardening.php | awk '{print $NF}')
+          stable=$(grep -m1 '^Stable tag:' readme.txt | awk '{print $NF}')
+          echo "tag $tag, plugin header $header, readme stable tag $stable"
+          [ "$tag" = "$header" ] && [ "$tag" = "$stable" ]
+
+      - name: Check that the tag is on main
+        run: git merge-base --is-ancestor HEAD origin/main
+
+      - name: Build the zip
+        run: git archive --format=zip --prefix=wp-login-hardening/ -o wp-login-hardening.zip HEAD
+
+      - name: Extract the release notes from the changelog
+        run: |
+          awk -v v="= ${GITHUB_REF_NAME#v} =" '/^== Changelog ==/ {inlog=1; next} inlog && $0 == v {on=1; next} on && /^=/ {exit} on && NF' readme.txt > notes.md
+          [ -s notes.md ] || echo "See the changelog in readme.txt." > notes.md
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" wp-login-hardening.zip --verify-tag --title "$GITHUB_REF_NAME" --notes-file notes.md

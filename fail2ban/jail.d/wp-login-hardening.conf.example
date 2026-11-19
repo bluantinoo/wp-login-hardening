@@ -1,0 +1,50 @@
+# Example jails for Login Hardening. Copy to /etc/fail2ban/jail.d/ without
+# .example, set logpath, then: fail2ban-client reload
+#
+# logpath: where the auth facility ends up (Debian and Ubuntu with rsyslog:
+# /var/log/auth.log), or the file set in WP_LOGIN_HARDENING_FAIL2BAN_LOG.
+# On systemd-only systems without rsyslog, use backend = systemd instead.
+#
+# bantime.increment needs fail2ban 0.11 or later.
+#
+# A staging copy on the same server with logging on writes to the same log:
+# add your own addresses to ignoreip, or turn logging on in production only.
+#
+# Behind Cloudflare or another CDN the default iptables action blocks nothing:
+# connections come from the CDN. Add an action that bans at the edge (fail2ban
+# ships action.d/cloudflare.conf and cloudflare-token.conf) and list the CDN
+# ranges as trusted proxies in the plugin settings.
+#
+# Login and lost password thresholds as measured on a WooCommerce site under
+# attack: real customers mistype a password a few times, never thirty times an
+# hour. The probe threshold is a starting point, not a measurement.
+
+[wp-login-hardening-login]
+enabled  = true
+filter   = wp-login-hardening-login
+logpath  = /var/log/auth.log
+port     = http,https
+maxretry = 30
+findtime = 3600
+bantime  = 3600
+bantime.increment = true
+
+[wp-login-hardening-lostpassword]
+enabled  = true
+filter   = wp-login-hardening-lostpassword
+logpath  = /var/log/auth.log
+port     = http,https
+maxretry = 15
+findtime = 3600
+bantime  = 3600
+bantime.increment = true
+
+[wp-login-hardening-probe]
+enabled  = true
+filter   = wp-login-hardening-probe
+logpath  = /var/log/auth.log
+port     = http,https
+maxretry = 10
+findtime = 3600
+bantime  = 3600
+bantime.increment = true
