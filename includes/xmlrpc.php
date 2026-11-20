@@ -23,9 +23,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 function register() {
 	// xmlrpc_enabled only turns off the methods that need a password. Pingbacks
 	// and the public methods would stay, and a pingback can make the site call
-	// someone else: emptying the method list closes those too.
+	// someone else: emptying the method list closes those too. Last priority,
+	// because plugins add their own methods on the same filter (WPML adds
+	// three at the default priority, after ours). The three system.* methods
+	// are added by the IXR server itself and cannot be filtered away.
 	add_filter( 'xmlrpc_enabled', '__return_false' );
-	add_filter( 'xmlrpc_methods', '__return_empty_array' );
+	add_filter( 'xmlrpc_methods', '__return_empty_array', PHP_INT_MAX );
 
 	// Stop advertising an endpoint that no longer answers: the X-Pingback
 	// header and the RSD link are what scanners read first.

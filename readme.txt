@@ -4,7 +4,7 @@ Tags: security, login, user enumeration, xml-rpc, fail2ban
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,10 +63,16 @@ Yes. The failed login lines are the same, with the same tag and facility, so its
 
 == Changelog ==
 
+= 2.0.1 =
+* XML-RPC off now also removes the methods other plugins add to the list, not only those of WordPress: the three of WPML, and those of the Jetpack connection that WooCommerce includes. A translation service connected to WPML can no longer deliver over XML-RPC: use WPML's manual pickup mode. WooPayments and the WooCommerce mobile app lose the Jetpack connection.
+
 = 2.0.0 =
 * First public release, from three must-use plugins used on production sites: user enumeration and login errors (1.2.2), XML-RPC off, accounts without a role. New: settings page and constants, application passwords switch, logging for fail2ban.
 
 == Upgrade Notice ==
+
+= 2.0.1 =
+With XML-RPC off, the methods added by other plugins are removed too. If WPML is connected to a translation service, set its Translation pickup mode to manual fetching. On WooCommerce sites, WooPayments and the mobile app lose the Jetpack connection.
 
 = 2.0.0 =
 First public release.

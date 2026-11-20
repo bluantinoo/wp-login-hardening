@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Login Hardening 2.0.0\n"
+"Project-Id-Version: Login Hardening 2.0.1\n"
 "Report-Msgid-Bugs-To: https://github.com/bluantinoo/wp-login-hardening/issues\n"
 "POT-Creation-Date: 2026-11-19 00:00+0000\n"
-"PO-Revision-Date: 2026-11-19 00:00+0000\n"
+"PO-Revision-Date: 2026-11-20 00:00+0000\n"
 "Last-Translator: Diego Vagnoli\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,8 +100,8 @@ msgid "Turn off XML-RPC"
 msgstr "Spegni XML-RPC"
 
 #: includes/settings.php:135
-msgid "No XML-RPC methods, pingbacks included, and the X-Pingback header and RSD link are removed. Leave it off if the site uses Jetpack, the WordPress mobile app or remote publishing."
-msgstr "Nessun metodo XML-RPC, pingback compresi, e vengono tolti l'intestazione X-Pingback e il link RSD. Lascialo spento se il sito usa Jetpack, l'app mobile di WordPress o la pubblicazione da remoto."
+msgid "No XML-RPC methods, pingbacks included, not even those added by other plugins, and the X-Pingback header and RSD link are removed. Leave it off if the site uses Jetpack, the WordPress mobile app or remote publishing. With it on, WooPayments and the WooCommerce mobile app lose the Jetpack connection, and a translation service connected to WPML can no longer deliver: set WPML's Translation pickup mode to \"The site will fetch translations manually\"."
+msgstr "Nessun metodo XML-RPC, pingback compresi e neanche quelli aggiunti da altri plugin, e vengono tolti l'intestazione X-Pingback e il link RSD. Lascialo spento se il sito usa Jetpack, l'app mobile di WordPress o la pubblicazione da remoto. Se è acceso, WooPayments e l'app mobile di WooCommerce perdono la connessione Jetpack, e un servizio di traduzione collegato a WPML non può più consegnare: in WPML imposta Modalità di prelievo delle traduzioni su \"Il sito recupererà le traduzioni manualmente\"."
 
 #: includes/settings.php:138
 msgid "Accounts without a role cannot log in"

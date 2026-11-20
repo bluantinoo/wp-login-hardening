@@ -48,7 +48,7 @@ The login form is not the only place that tells: the lost password forms of Word
 
 ### Turn off XML-RPC
 
-No XML-RPC methods at all, pingbacks included (`xmlrpc_enabled` alone only removes the methods that need a password), and no `X-Pingback` header or RSD link. The best place to refuse `xmlrpc.php` is the web server, before PHP starts; this block keeps the endpoint closed when that rule gets lost in a migration. Leave it off if the site uses Jetpack, the WordPress mobile app or remote publishing.
+No XML-RPC methods at all, pingbacks included (`xmlrpc_enabled` alone only removes the methods that need a password), and no `X-Pingback` header or RSD link. The best place to refuse `xmlrpc.php` is the web server, before PHP starts; this block keeps the endpoint closed when that rule gets lost in a migration. Leave it off if the site uses Jetpack, the WordPress mobile app or remote publishing. The method list is emptied after every other plugin has added to it, so methods added by plugins go too. With WPML connected to a translation service, the service can no longer deliver translations over XML-RPC; set WPML's *Translation pickup mode* to *The site will fetch translations manually*. WooCommerce includes the Jetpack connection: with this block on, WooPayments and the WooCommerce mobile app lose it, as Jetpack does. Only the three `system.*` methods that the XML-RPC server adds on its own remain, and with no other method they have nothing to call.
 
 ### Accounts without a role cannot log in
 

@@ -2,7 +2,7 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Login Hardening 2.0.0\n"
+"Project-Id-Version: Login Hardening 2.0.1\n"
 "Report-Msgid-Bugs-To: https://github.com/bluantinoo/wp-login-hardening/issues\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,7 +113,7 @@ msgid "Turn off XML-RPC"
 msgstr ""
 
 #: includes/settings.php:135
-msgid "No XML-RPC methods, pingbacks included, and the X-Pingback header and RSD link are removed. Leave it off if the site uses Jetpack, the WordPress mobile app or remote publishing."
+msgid "No XML-RPC methods, pingbacks included, not even those added by other plugins, and the X-Pingback header and RSD link are removed. Leave it off if the site uses Jetpack, the WordPress mobile app or remote publishing. With it on, WooPayments and the WooCommerce mobile app lose the Jetpack connection, and a translation service connected to WPML can no longer deliver: set WPML's Translation pickup mode to \"The site will fetch translations manually\"."
 msgstr ""
 
 #: includes/settings.php:138

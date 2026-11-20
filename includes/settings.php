@@ -132,7 +132,7 @@ function blocks() {
 		],
 		'xmlrpc'        => [
 			'label'       => __( 'Turn off XML-RPC', 'wp-login-hardening' ),
-			'description' => __( 'No XML-RPC methods, pingbacks included, and the X-Pingback header and RSD link are removed. Leave it off if the site uses Jetpack, the WordPress mobile app or remote publishing.', 'wp-login-hardening' ),
+			'description' => __( 'No XML-RPC methods, pingbacks included, not even those added by other plugins, and the X-Pingback header and RSD link are removed. Leave it off if the site uses Jetpack, the WordPress mobile app or remote publishing. With it on, WooPayments and the WooCommerce mobile app lose the Jetpack connection, and a translation service connected to WPML can no longer deliver: set WPML\'s Translation pickup mode to "The site will fetch translations manually".', 'wp-login-hardening' ),
 		],
 		'roleless'      => [
 			'label'       => __( 'Accounts without a role cannot log in', 'wp-login-hardening' ),

@@ -3,7 +3,7 @@
  * Plugin Name:       Login Hardening
  * Plugin URI:        https://github.com/bluantinoo/wp-login-hardening
  * Description:       Takes away what a brute force needs: the list of real usernames, a login form that tells a wrong name from a wrong password, XML-RPC, accounts nobody should use. Optionally logs every failed attempt for fail2ban.
- * Version:           2.0.0
+ * Version:           2.0.1
  * Author:            Diego Vagnoli
  * Author URI:        https://diegovagnoli.it
  * License:           GPL-2.0-or-later
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const VERSION = '2.0.0';
+const VERSION = '2.0.1';
 
 require_once __DIR__ . '/lib/plugin-update-checker/plugin-update-checker.php';
 
